@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="TS3AudioBot">
+			<HintPath>../TS3AudioBot_dotnetcore3.1/TS3AudioBot.dll</HintPath>
+			<Private>False</Private>
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+		<Reference Include="TSLib">
+			<HintPath>../TS3AudioBot_dotnetcore3.1/TSLib.dll</HintPath>
+			<Private>False</Private>
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+	</ItemGroup>
+</Project>
