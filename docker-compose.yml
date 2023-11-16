@@ -1,0 +1,28 @@
+﻿version: '3'
+services:
+  ncm_api:
+    image: binaryify/netease_cloud_music_api:latest
+    environment:
+      PORT: 3000
+    networks:
+      - internal
+
+  ts3ncmbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ts3ncmbot
+    entrypoint: dotnet
+    command: ["/app/TS3AudioBot.dll", "-c", "/app/data/ts3audiobot.toml"]
+    environment:
+      NCM_API_SERVER: http://ncm_api:3000
+      NCM_BOT_NAME: "网抑云音乐"
+    networks:
+      - internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data:/app/data
+
+networks:
+  internal:
