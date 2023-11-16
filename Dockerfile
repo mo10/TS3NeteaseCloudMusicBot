@@ -7,8 +7,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
     mkdir -p /app && \
     wget https://github.com/Splamy/TS3AudioBot/releases/download/0.12.0/TS3AudioBot_dotnetcore3.1.zip -o /tmp/ts3audiobot.zip && \
     unzip /tmp/ts3audiobot.zip -d /app/TS3AudioBot_dotnetcore3.1 && \
-    rm -rf /tmp/ts3audiobot.zip \
-    
+    rm -rf /tmp/ts3audiobot.zip
 
 WORKDIR /app/ts3ncm
 
@@ -26,9 +25,11 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
 
 WORKDIR /app
 
-COPY --from=build /app/TS3AudioBot_dotnetcore3.1 ./
-COPY --from=build /app/ts3ncm/out/ts3ncm.dll ./plugins
+RUN mkdir -p /app/plugins
+
+COPY --from=build /app/TS3AudioBot_dotnetcore3.1 /app
+COPY --from=build /app/ts3ncm/out/ts3ncm.dll /app/plugins
 
 EXPOSE 58913
-
+    
 ENTRYPOINT ["dotnet", "TS3AudioBot.dll"]
