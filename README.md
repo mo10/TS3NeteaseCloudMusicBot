@@ -4,7 +4,7 @@ A teamspeak netease cloud music bot
 ## Dependency
 https://github.com/Splamy/TS3AudioBot  
 https://github.com/Binaryify/NeteaseCloudMusicApi/issues
-
+https://github.com/Binaryify/NeteaseCloudMusicApi/commit/185031ddcefad34e294df6933418e44cc70ec31f
 # Run
 1. Copy ts3ncm.dll to plugin folder  
 2. Setup environment  
